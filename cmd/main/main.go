@@ -1,9 +1,16 @@
 package main
 
 import (
-	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/gorilla/mux"
+	"github.com/huckflinn/go-bookstore/pkg/routes"
 )
 
 func main() {
-	fmt.Println("Hello, world!")
+	r := mux.NewRouter()
+	routes.RegisterBookStoreRoutes(r)
+	http.Handle("/", r)
+	log.Fatal(http.ListenAndServe("localhost:9010"))
 }

@@ -11,7 +11,7 @@ import (
 	"github.com/huckflinn/go-bookstore/pkg/utils"
 )
 
-var NewBook models.book
+var NewBook models.Book
 
 func GetBook(w http.ResponseWriter, r *http.Request) {
 	newBooks := models.GetAllBooks()
